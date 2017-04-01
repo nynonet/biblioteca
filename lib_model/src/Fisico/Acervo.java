@@ -5,11 +5,15 @@
  */
 package Fisico;
 
+import Cadastro.Localizacao;
+import Cadastro.Genero;
+import Cadastro.Classificacao;
+
 /**
  *
  * @author Andeson
  */
-class Acervo {
+public class Acervo {
     private int id_acervo;
     private String titulo;
     private int ano;

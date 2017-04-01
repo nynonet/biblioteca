@@ -5,6 +5,9 @@
  */
 package Fisico;
 
+import Cadastro.Autores;
+import Cadastro.Editora;
+
 /**
  *
  * @author James

@@ -3,24 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Fisico;
+package Cadastro;
 
 /**
  *
  * @author Andeson
  */
-class Autores {
-    private int id_autor;
+public class Editora {
+    private int id_edit;
     private String nome;
+    private String site;
     private String email;
-    private String nacionalidade;
 
-    public int getId_autor() {
-        return id_autor;
+    public int getId_edit() {
+        return id_edit;
     }
 
-    public void setId_autor(int id_autor) {
-        this.id_autor = id_autor;
+    public void setId_edit(int id_edit) {
+        this.id_edit = id_edit;
     }
 
     public String getNome() {
@@ -31,6 +31,14 @@ class Autores {
         this.nome = nome;
     }
 
+    public String getSite() {
+        return site;
+    }
+
+    public void setSite(String site) {
+        this.site = site;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -39,12 +47,5 @@ class Autores {
         this.email = email;
     }
 
-    public String getNacionalidade() {
-        return nacionalidade;
-    }
-
-    public void setNacionalidade(String nacionalidade) {
-        this.nacionalidade = nacionalidade;
-    }
     
 }

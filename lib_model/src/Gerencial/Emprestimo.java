@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Fisico;
+package Gerencial;
 
-import Gerencial.Cliente;
-import Gerencial.Usuario;
+import Fisico.Acervo;
 import java.util.Calendar;
 
 /**
