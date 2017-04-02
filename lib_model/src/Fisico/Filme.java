@@ -9,7 +9,7 @@ package Fisico;
  *
  * @author Claudiney
  */
-public class Filme {
+public class Filme extends Acervo{
     
     private String empresa_produtora;
     private String diretor;
