@@ -9,7 +9,7 @@ package Fisico;
  *
  * @author Claudiney
  */
-public class Gravacao_de_som {
+public class Gravacao_de_som extends Acervo{
     
     private String compositor;
     private String musico;
