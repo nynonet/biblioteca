@@ -13,12 +13,12 @@ import java.util.Calendar;
  * @author Enoch Junior
  */
 public class Emprestimo {
-    private int id_emp;
-    private Cliente cliente;
-    private Acervo acervo;
-    private Calendar data_emp;
-    private Calendar data_dev;
-    private Usuario usuario;
+    private int id_emp;         // Código do empréstimo
+    private Cliente cliente;    // Cliente que fez o empréstimo
+    private Acervo acervo;      // --> Criar nova classe com os itens do empréstimo
+    private Calendar data_emp;  // Data do empréstimo
+    private Calendar data_dev;  // Data prevista para devolução  
+    private Usuario usuario;    // Usuário que realizou o empréstimo
 
     public int getId_emp() {
         return id_emp;

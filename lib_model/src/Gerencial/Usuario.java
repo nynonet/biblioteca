@@ -10,10 +10,10 @@ package Gerencial;
  * @author Enoch Junior
  */
 public class Usuario {
-    private int id_user;
-    private int mat_user;
-    private String Nome;
-    private String funcao;
+    private int id_user;    // Código do usuário
+    private int mat_user;   // Matrícula do usuário
+    private String Nome;    // Nome do usuário
+    private String funcao;  // --> Criar classe FuncaoUsuario(Enum) | Definir a função do usuário
 
     public int getId_user() {
         return id_user;

@@ -10,9 +10,13 @@ package Gerencial;
  * @author Enoch Junior
  */
 public class Cliente {
-    private int id_cli;
-    private int mat_cli;
-    private String nome;
+    private int id_cli;  // Código do cliente
+    private int mat_cli; // Nº de Matrícula do cliente/aluno
+    private String nome; // Nome do cliente
+    String email;        // E-mail do cliente
+    String telefone;     // Número de telefone fixo
+    String celular;      // Número de celular
+    Boolean situacao;    // True = Ativo | False = Inativo
 
     public int getId_cli() {
         return id_cli;
