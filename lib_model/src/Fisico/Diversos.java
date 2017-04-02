@@ -11,7 +11,7 @@ import Cadastro.Editora;
  *
  * @author Claudiney
  */
-public class Diversos {
+public class Diversos extends Acervo{
     
     private Autores autor;
     private String tipo_de_midia;
