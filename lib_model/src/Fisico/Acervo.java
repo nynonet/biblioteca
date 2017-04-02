@@ -17,7 +17,7 @@ public class Acervo {
     private int id_acervo;
     private String titulo;
     private int ano;
-    private Genero genero;
+    private Genero genero;              // Em caso de livro cadastrar o genero "Anual", onde seria os livros de alunos com um prazo de 1 ano e sem multa. 
     private Localizacao localizacao;
     private Classificacao classificacao;
 
