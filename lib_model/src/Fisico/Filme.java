@@ -11,16 +11,17 @@ package Fisico;
  */
 public class Filme extends Acervo{
     
-    private String empresa_produtora;
+    private String produtora;
     private String diretor;
     private String pais;
+    private String duracao;
 
     public String getEmpresa_produtora() {
-        return empresa_produtora;
+        return produtora;
     }
 
     public void setEmpresa_produtora(String empresa_produtora) {
-        this.empresa_produtora = empresa_produtora;
+        this.produtora = empresa_produtora;
     }
 
     public String getDiretor() {
@@ -37,6 +38,14 @@ public class Filme extends Acervo{
 
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+    public String getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(String duracao) {
+        this.duracao = duracao;
     }
     
     
