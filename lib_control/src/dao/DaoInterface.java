@@ -1,0 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dao;
+
+import java.util.List;
+
+/**
+ *
+ * @author Andeson
+ */
+public interface DaoInterface<T> {
+    
+    public void Inserir(T obj) throws Exception;
+    public void Atualizar(T obj) throws Exception;
+    public void Deletar(T obj) throws Exception;
+    
+    public List<T> getRegistros(String Filtro) throws Exception;
+    public T getRegistro(int Id) throws Exception;
+    
+}
