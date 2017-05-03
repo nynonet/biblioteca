@@ -13,7 +13,7 @@ import java.sql.SQLException;
  *
  * @author James
  */
-public class conexao {
+public class Conexao {
     private Connection conexao;
     private String Porta = "3306";
     private String Database = "dbBiblioteca";   //Criar banco de dados e passar usuario e senha via parametros
@@ -21,7 +21,7 @@ public class conexao {
     private String Senha = "";
     private String Host = "localhost";//localhost ou 127.0.0.1
 
-    public conexao() {
+    public Conexao() {
         String link = "jdbc:mysql://" + this.Host + ":" + this.Porta + "/" + this.Database;
     
         try {

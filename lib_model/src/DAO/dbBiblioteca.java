@@ -28,7 +28,7 @@ public @interface dbBiblioteca {
     classificacao varchar(20),
     id_autor int,
     id_editora int,
-    isbn int,
+    isbn int unsigned,
     npaginas int,
     exemplar int,
     edicao int
