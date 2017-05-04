@@ -35,12 +35,25 @@ public class GeneroDAO implements InterfaceDAO<Genero>{
 
     @Override
     public void Deletar(Genero obj) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String SQL = "DELETE FROM genero WHERE id_gen=?";
+        
+        PreparedStatement ps = this.connection.prepareStatement(SQL);
+        
+        ps.setInt(0, obj.getId_gen());
+        
+        ps.executeUpdate();
     }
 
     @Override
     public void Atualizar(Genero obj) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String SQL = "UPDATE genero SET genero=? WHERE id_gen=?";
+        
+        PreparedStatement ps = this.connection.prepareStatement(SQL);
+        
+        ps.setString(0, obj.getGenero());
+        ps.setInt(1, obj.getId_gen());
+        
+        ps.executeUpdate();
     }
     
 }

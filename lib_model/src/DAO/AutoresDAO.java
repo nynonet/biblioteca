@@ -37,12 +37,27 @@ public class AutoresDAO implements InterfaceDAO<Autores>{
 
     @Override
     public void Deletar(Autores obj) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String SQL = "DELETE FROM autores WHERE id_autor=?";
+        
+        PreparedStatement ps = this.connection.prepareStatement(SQL);
+        
+        ps.setInt(0, obj.getId_autor());
+        
+        ps.executeUpdate();
     }
 
     @Override
     public void Atualizar(Autores obj) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String SQL = "UPDATE autores SET nome=?, email=?, nacionalidade=? WHERE id_autor=?";
+        
+        PreparedStatement ps = this.connection.prepareStatement(SQL);
+        
+        ps.setString(0, obj.getNome());
+        ps.setString(1, obj.getEmail());
+        ps.setString(2, obj.getNacionalidade());
+        ps.setInt(3, obj.getId_autor());
+        
+        ps.executeUpdate();
     }
     
 }

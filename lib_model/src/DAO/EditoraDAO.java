@@ -37,12 +37,27 @@ public class EditoraDAO implements InterfaceDAO<Editora>{
 
     @Override
     public void Deletar(Editora obj) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String SQL = "DELETE FROM editora WHERE id_edit=?";
+        
+        PreparedStatement ps = this.connection.prepareStatement(SQL);
+        
+        ps.setInt(0, obj.getId_edit());
+        
+        ps.executeUpdate();
     }
 
     @Override
     public void Atualizar(Editora obj) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String SQL = "UPDATE editora SET nome=?, site=?, email=?, WHERE id_edit=?";
+        
+        PreparedStatement ps = this.connection.prepareStatement(SQL);
+        
+        ps.setString(0, obj.getNome());
+        ps.setString(1, obj.getSite());
+        ps.setString(2, obj.getEmail());
+        ps.setInt(3, obj.getId_edit());
+        
+        ps.executeUpdate();
     }
     
 }

@@ -36,12 +36,27 @@ public class LocalizacaoDAO implements InterfaceDAO<Localizacao>{
 
     @Override
     public void Deletar(Localizacao obj) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String SQL = "DELETE FROM localizacao WHERE id_loc=?";
+        
+        PreparedStatement ps = this.connection.prepareStatement(SQL);
+        
+        ps.setInt(0, obj.getId_loc());
+        
+        ps.executeUpdate();
     }
 
     @Override
     public void Atualizar(Localizacao obj) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String SQL = "UPDATE localizacao SET corredor=?, estante=?, lado=?, WHERE id_loc=?";
+        
+        PreparedStatement ps = this.connection.prepareStatement(SQL);
+        
+        ps.setString(0, obj.getCorredor());
+        ps.setString(1, obj.getEstante());
+        ps.setString(2, obj.getLado());
+        ps.setInt(3, obj.getId_loc());
+        
+        ps.executeUpdate();
     }
     
 }
