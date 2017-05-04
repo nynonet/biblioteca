@@ -21,20 +21,20 @@ public class LocalizacaoDAO implements InterfaceDAO<Localizacao>{
         this.connection = connection;
     }
 
-    @Override
+    @Override                                                                   //INSERIR
     public void Inserir(Localizacao obj) throws Exception {
         String SQL = "INSERT INTO localizacao(corredor, estante, lado) VALUES(?, ?, ?);";
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getCorredor());
-        ps.setString(1, obj.getEstante());
-        ps.setString(2, obj.getLado());
+        ps.setString(0, obj.getCorredor());                                     //Corredor
+        ps.setString(1, obj.getEstante());                                      //Estante
+        ps.setString(2, obj.getLado());                                         //Lado
         
         ps.executeUpdate();
     }
 
-    @Override
+    @Override                                                                   //DELETAR
     public void Deletar(Localizacao obj) throws Exception {
         String SQL = "DELETE FROM localizacao WHERE id_loc=?";
         
@@ -46,15 +46,16 @@ public class LocalizacaoDAO implements InterfaceDAO<Localizacao>{
     }
 
     @Override
-    public void Atualizar(Localizacao obj) throws Exception {
-        String SQL = "UPDATE localizacao SET corredor=?, estante=?, lado=?, WHERE id_loc=?";
+    public void Atualizar(Localizacao obj) throws Exception {                   //ATUALIZAR
+        String SQL = "UPDATE localizacao SET corredor=?, estante=?, lado=?, "
+                   + "WHERE id_loc=?";
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getCorredor());
-        ps.setString(1, obj.getEstante());
-        ps.setString(2, obj.getLado());
-        ps.setInt(3, obj.getId_loc());
+        ps.setString(0, obj.getCorredor());                                     //Corredor
+        ps.setString(1, obj.getEstante());                                      //Estante
+        ps.setString(2, obj.getLado());                                         //Lado
+        ps.setInt(3, obj.getId_loc());                                          //Código ID
         
         ps.executeUpdate();
     }

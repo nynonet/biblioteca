@@ -21,21 +21,21 @@ public class EditoraDAO implements InterfaceDAO<Editora>{
         this.connection = connection;
     }
 
-    @Override
+    @Override                                                                   //INSERIR
     public void Inserir(Editora obj) throws Exception {
         String SQL = "INSERT INTO editora(nome, site, email) VALUES(?, ?, ?);";
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getNome());
-        ps.setString(1, obj.getSite());
-        ps.setString(2, obj.getEmail());
+        ps.setString(0, obj.getNome());                                         //Nome da Editora
+        ps.setString(1, obj.getSite());                                         //Site
+        ps.setString(2, obj.getEmail());                                        //Email
         
         ps.executeUpdate();
         
     }
 
-    @Override
+    @Override                                                                   //DELETAR
     public void Deletar(Editora obj) throws Exception {
         String SQL = "DELETE FROM editora WHERE id_edit=?";
         
@@ -46,16 +46,16 @@ public class EditoraDAO implements InterfaceDAO<Editora>{
         ps.executeUpdate();
     }
 
-    @Override
+    @Override                                                                   //ATUALIZAR
     public void Atualizar(Editora obj) throws Exception {
         String SQL = "UPDATE editora SET nome=?, site=?, email=?, WHERE id_edit=?";
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getNome());
-        ps.setString(1, obj.getSite());
-        ps.setString(2, obj.getEmail());
-        ps.setInt(3, obj.getId_edit());
+        ps.setString(0, obj.getNome());                                         //Nome da Editora
+        ps.setString(1, obj.getSite());                                         //Site
+        ps.setString(2, obj.getEmail());                                        //Email
+        ps.setInt(3, obj.getId_edit());                                         //Código ID
         
         ps.executeUpdate();
     }

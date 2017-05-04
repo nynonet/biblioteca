@@ -21,7 +21,7 @@ public class GeneroDAO implements InterfaceDAO<Genero>{
         this.connection = connection;
     }
     
-    @Override
+    @Override                                                                   //INSERIR
     public void Inserir(Genero obj) throws Exception {
         String SQL = "INSERT INTO genero(genero) VALUES(?);";
         
@@ -33,7 +33,7 @@ public class GeneroDAO implements InterfaceDAO<Genero>{
 
     }
 
-    @Override
+    @Override                                                                   //DELETAR
     public void Deletar(Genero obj) throws Exception {
         String SQL = "DELETE FROM genero WHERE id_gen=?";
         
@@ -44,7 +44,7 @@ public class GeneroDAO implements InterfaceDAO<Genero>{
         ps.executeUpdate();
     }
 
-    @Override
+    @Override                                                                   //ATUALIZAR
     public void Atualizar(Genero obj) throws Exception {
         String SQL = "UPDATE genero SET genero=? WHERE id_gen=?";
         

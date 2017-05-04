@@ -21,21 +21,21 @@ public class AutoresDAO implements InterfaceDAO<Autores>{
         this.connection = connection;
     }
     
-    @Override
+    @Override                                                                   //INSERIR
     public void Inserir(Autores obj) throws Exception {
         String SQL = "INSERT INTO autores(nome, email, nacionalidade) VALUES(?, ?, ?);";
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getNome());
-        ps.setString(1, obj.getEmail());
-        ps.setString(2, obj.getNacionalidade());
+        ps.setString(0, obj.getNome());                                         //Nome do Autor
+        ps.setString(1, obj.getEmail());                                        //Email
+        ps.setString(2, obj.getNacionalidade());                                //Nacionalidade
         
         ps.executeUpdate();
         
     }
 
-    @Override
+    @Override                                                                   //DELETAR
     public void Deletar(Autores obj) throws Exception {
         String SQL = "DELETE FROM autores WHERE id_autor=?";
         
@@ -46,16 +46,16 @@ public class AutoresDAO implements InterfaceDAO<Autores>{
         ps.executeUpdate();
     }
 
-    @Override
+    @Override                                                                   //ATUALIZAR
     public void Atualizar(Autores obj) throws Exception {
         String SQL = "UPDATE autores SET nome=?, email=?, nacionalidade=? WHERE id_autor=?";
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getNome());
-        ps.setString(1, obj.getEmail());
-        ps.setString(2, obj.getNacionalidade());
-        ps.setInt(3, obj.getId_autor());
+        ps.setString(0, obj.getNome());                                         //Nome do Autor
+        ps.setString(1, obj.getEmail());                                        //Email
+        ps.setString(2, obj.getNacionalidade());                                //Nacionalidade
+        ps.setInt(3, obj.getId_autor());                                        //Código ID
         
         ps.executeUpdate();
     }
