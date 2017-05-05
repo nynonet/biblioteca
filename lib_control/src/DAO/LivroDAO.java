@@ -30,17 +30,17 @@ public class LivroDAO implements InterfaceDAO<Livro>{
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getTitulo());                                       //Título
-        ps.setInt(1, obj.getAno());                                             //Ano
-        ps.setInt(2, obj.getGenero().getId_gen());                              //Genero
-        ps.setInt(3, obj.getLocalizacao().getId_loc());                         //Localização
-        ps.setString(4, obj.getClassificacao().Classificacao());                //Classificação
-        ps.setInt(5, obj.getAutor().getId_autor());                             //Autor
-        ps.setInt(6, obj.getEditora().getId_edit());                            //Editora
-        ps.setInt(7, obj.getIsbn());                                            //ISBN
-        ps.setInt(8, obj.getNpaginas());                                        //Número de Páginas
-        ps.setInt(9, obj.getExemplar());                                        //Quantidade de Exemplares
-        ps.setInt(10, obj.getEdicao());                                         //Edição
+        ps.setString(1, obj.getTitulo());                                       //Título
+        ps.setInt(2, obj.getAno());                                             //Ano
+        ps.setInt(3, obj.getGenero().getId_gen());                              //Genero
+        ps.setInt(4, obj.getLocalizacao().getId_loc());                         //Localização
+        ps.setString(5, obj.getClassificacao().Classificacao());                //Classificação
+        ps.setInt(6, obj.getAutor().getId_autor());                             //Autor
+        ps.setInt(7, obj.getEditora().getId_edit());                            //Editora
+        ps.setInt(8, obj.getIsbn());                                            //ISBN
+        ps.setInt(9, obj.getNpaginas());                                        //Número de Páginas
+        ps.setInt(10, obj.getExemplar());                                        //Quantidade de Exemplares
+        ps.setInt(11, obj.getEdicao());                                         //Edição
         
         ps.executeUpdate();
     }
@@ -51,7 +51,7 @@ public class LivroDAO implements InterfaceDAO<Livro>{
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setInt(0, obj.getId_acervo());
+        ps.setInt(1, obj.getId_acervo());
         
         ps.executeUpdate();
     }
@@ -64,18 +64,18 @@ public class LivroDAO implements InterfaceDAO<Livro>{
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getTitulo());                                       //Título
-        ps.setInt(1, obj.getAno());                                             //Ano
-        ps.setInt(2, obj.getGenero().getId_gen());                              //Genero
-        ps.setInt(3, obj.getLocalizacao().getId_loc());                         //Localização
-        ps.setString(4, obj.getClassificacao().Classificacao());                //Classificação
-        ps.setInt(5, obj.getAutor().getId_autor());                             //Autor
-        ps.setInt(6, obj.getEditora().getId_edit());                            //Editora
-        ps.setInt(7, obj.getIsbn());                                            //ISBN
-        ps.setInt(8, obj.getNpaginas());                                        //Número de Páginas
-        ps.setInt(9, obj.getExemplar());                                        //Quantidade de Exemplares
-        ps.setInt(10, obj.getEdicao());                                         //Edição
-        ps.setInt(11, obj.getId_acervo());                                      //Código ID
+        ps.setString(1, obj.getTitulo());                                       //Título
+        ps.setInt(2, obj.getAno());                                             //Ano
+        ps.setInt(3, obj.getGenero().getId_gen());                              //Genero
+        ps.setInt(4, obj.getLocalizacao().getId_loc());                         //Localização
+        ps.setString(5, obj.getClassificacao().Classificacao());                //Classificação
+        ps.setInt(6, obj.getAutor().getId_autor());                             //Autor
+        ps.setInt(7, obj.getEditora().getId_edit());                            //Editora
+        ps.setInt(8, obj.getIsbn());                                            //ISBN
+        ps.setInt(9, obj.getNpaginas());                                        //Número de Páginas
+        ps.setInt(10, obj.getExemplar());                                        //Quantidade de Exemplares
+        ps.setInt(11, obj.getEdicao());                                         //Edição
+        ps.setInt(12, obj.getId_acervo());                                      //Código ID
         
         ps.executeUpdate();
     }

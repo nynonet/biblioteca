@@ -27,9 +27,9 @@ public class EditoraDAO implements InterfaceDAO<Editora>{
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getNome());                                         //Nome da Editora
-        ps.setString(1, obj.getSite());                                         //Site
-        ps.setString(2, obj.getEmail());                                        //Email
+        ps.setString(1, obj.getNome());                                         //Nome da Editora
+        ps.setString(2, obj.getSite());                                         //Site
+        ps.setString(3, obj.getEmail());                                        //Email
         
         ps.executeUpdate();
         
@@ -41,7 +41,7 @@ public class EditoraDAO implements InterfaceDAO<Editora>{
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setInt(0, obj.getId_edit());
+        ps.setInt(1, obj.getId_edit());
         
         ps.executeUpdate();
     }
@@ -52,10 +52,10 @@ public class EditoraDAO implements InterfaceDAO<Editora>{
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getNome());                                         //Nome da Editora
-        ps.setString(1, obj.getSite());                                         //Site
-        ps.setString(2, obj.getEmail());                                        //Email
-        ps.setInt(3, obj.getId_edit());                                         //Código ID
+        ps.setString(1, obj.getNome());                                         //Nome da Editora
+        ps.setString(2, obj.getSite());                                         //Site
+        ps.setString(3, obj.getEmail());                                        //Email
+        ps.setInt(4, obj.getId_edit());                                         //Código ID
         
         ps.executeUpdate();
     }

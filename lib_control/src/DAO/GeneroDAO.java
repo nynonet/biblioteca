@@ -27,7 +27,7 @@ public class GeneroDAO implements InterfaceDAO<Genero>{
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getGenero());
+        ps.setString(1, obj.getGenero());
         
         ps.executeUpdate();
 
@@ -39,7 +39,7 @@ public class GeneroDAO implements InterfaceDAO<Genero>{
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setInt(0, obj.getId_gen());
+        ps.setInt(1, obj.getId_gen());
         
         ps.executeUpdate();
     }
@@ -50,8 +50,8 @@ public class GeneroDAO implements InterfaceDAO<Genero>{
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getGenero());
-        ps.setInt(1, obj.getId_gen());
+        ps.setString(1, obj.getGenero());
+        ps.setInt(2, obj.getId_gen());
         
         ps.executeUpdate();
     }

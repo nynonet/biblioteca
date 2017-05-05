@@ -27,9 +27,9 @@ public class AutoresDAO implements InterfaceDAO<Autores>{
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getNome());                                         //Nome do Autor
-        ps.setString(1, obj.getEmail());                                        //Email
-        ps.setString(2, obj.getNacionalidade());                                //Nacionalidade
+        ps.setString(1, obj.getNome());                                         //Nome do Autor
+        ps.setString(2, obj.getEmail());                                        //Email
+        ps.setString(3, obj.getNacionalidade());                                //Nacionalidade
         
         ps.executeUpdate();
         
@@ -41,7 +41,7 @@ public class AutoresDAO implements InterfaceDAO<Autores>{
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setInt(0, obj.getId_autor());
+        ps.setInt(1, obj.getId_autor());
         
         ps.executeUpdate();
     }
@@ -52,10 +52,10 @@ public class AutoresDAO implements InterfaceDAO<Autores>{
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getNome());                                         //Nome do Autor
-        ps.setString(1, obj.getEmail());                                        //Email
-        ps.setString(2, obj.getNacionalidade());                                //Nacionalidade
-        ps.setInt(3, obj.getId_autor());                                        //Código ID
+        ps.setString(1, obj.getNome());                                         //Nome do Autor
+        ps.setString(2, obj.getEmail());                                        //Email
+        ps.setString(3, obj.getNacionalidade());                                //Nacionalidade
+        ps.setInt(4, obj.getId_autor());                                        //Código ID
         
         ps.executeUpdate();
     }

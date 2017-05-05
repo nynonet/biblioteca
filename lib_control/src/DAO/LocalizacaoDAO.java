@@ -27,9 +27,9 @@ public class LocalizacaoDAO implements InterfaceDAO<Localizacao>{
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getCorredor());                                     //Corredor
-        ps.setString(1, obj.getEstante());                                      //Estante
-        ps.setString(2, obj.getLado());                                         //Lado
+        ps.setString(1, obj.getCorredor());                                     //Corredor
+        ps.setString(2, obj.getEstante());                                      //Estante
+        ps.setString(3, obj.getLado());                                         //Lado
         
         ps.executeUpdate();
     }
@@ -40,7 +40,7 @@ public class LocalizacaoDAO implements InterfaceDAO<Localizacao>{
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setInt(0, obj.getId_loc());
+        ps.setInt(1, obj.getId_loc());
         
         ps.executeUpdate();
     }
@@ -52,10 +52,10 @@ public class LocalizacaoDAO implements InterfaceDAO<Localizacao>{
         
         PreparedStatement ps = this.connection.prepareStatement(SQL);
         
-        ps.setString(0, obj.getCorredor());                                     //Corredor
-        ps.setString(1, obj.getEstante());                                      //Estante
-        ps.setString(2, obj.getLado());                                         //Lado
-        ps.setInt(3, obj.getId_loc());                                          //Código ID
+        ps.setString(1, obj.getCorredor());                                     //Corredor
+        ps.setString(2, obj.getEstante());                                      //Estante
+        ps.setString(3, obj.getLado());                                         //Lado
+        ps.setInt(4, obj.getId_loc());                                          //Código ID
         
         ps.executeUpdate();
     }

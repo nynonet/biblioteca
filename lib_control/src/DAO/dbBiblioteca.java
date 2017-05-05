@@ -15,7 +15,7 @@ public @interface dbBiblioteca {
     
     //  As classes que extendem de Acervo terão que ficar na mesma tabela no banco de dados
     
-    
+/**    
     create database dbBiblioteca;
     use dbBiblioteca;
 
@@ -76,5 +76,5 @@ public @interface dbBiblioteca {
     add foreign key(id_editora)
     references editora(id_edit);
     
-    
+   **/ 
 }

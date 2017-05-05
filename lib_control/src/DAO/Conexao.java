@@ -17,8 +17,8 @@ public class Conexao {
     private Connection conexao;
     private String Porta = "3306";
     private String Database = "dbBiblioteca";   //Criar banco de dados e passar usuario e senha via parametros
-    private String Usuario = "";
-    private String Senha = "";
+    private String Usuario = "root";
+    private String Senha = "jms62442";
     private String Host = "localhost";//localhost ou 127.0.0.1
 
     public Conexao() {
