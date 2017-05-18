@@ -24,8 +24,8 @@ public class AtasDAO implements InterfaceDAO<Atas_Conferencia> {
     @Override
     public void Inserir(Atas_Conferencia obj) throws Exception {
         String SQL = "INSERT INTO atas_conferencia (titulo, ano, id_genero, id_localizacao,classificacao,"
-                + "id_ata, autor, pagina, ano, cidade, editora) "
-                + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+                + " autor, pagina, ano, cidade, editora) "
+                + "VALUES (?,?,?,?,?,?,?,?,?,?)";
     PreparedStatement ps = connection.prepareStatement(SQL);
         ps.setString(1, obj.getTitulo());                                       //Título
         ps.setInt(2, obj.getAno());                                             //Ano
@@ -37,7 +37,6 @@ public class AtasDAO implements InterfaceDAO<Atas_Conferencia> {
         ps.setString(8, obj.getEditora());
         ps.setInt(9, obj.getPagina());
         ps.setInt(10, obj.getAno());
-        ps.setInt(10, obj.getId_ata());
         ps.executeUpdate(); 
     
     }
@@ -46,14 +45,15 @@ public class AtasDAO implements InterfaceDAO<Atas_Conferencia> {
     public void Deletar(Atas_Conferencia obj) throws Exception {
         String SQL = "DELETE FROM atas_conferencia WHERE id_acervo=?";   
         PreparedStatement ps = connection.prepareStatement(SQL);
-        ps.setInt(1, obj.getId_ata());
+        ps.setInt(1, obj.getId_acervo());
         ps.executeUpdate();
     
     }
 
     @Override
     public void Atualizar(Atas_Conferencia obj) throws Exception {
-      String SQL = "UPDATE atas_conferencia SET titulo=?, ano=?, id_genero=?, id_localizacao=?,classificacao=?, "
+      String SQL = "UPDATE atas_conferencia SET titulo=?, ano=?, id_genero=?, id_localizacao=?,"
+              + "classificacao=?, "
               + "autor=?, pagina=?, ano=?, cidade=?, editora=? "
               + "WHERE id_acervo=?";
     PreparedStatement ps = connection.prepareStatement(SQL);

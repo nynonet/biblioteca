@@ -23,8 +23,8 @@ public class PatenteDAO implements InterfaceDAO<Patente> {
 
     @Override
     public void Inserir(Patente obj) throws Exception {
-        String SQL = "INSERT INTO patente (titulo, ano, id_genero, id_localizacao,classificacao,id_pat, "
-                + "inventor, ano, pais, numero)  VALUES (?,?,?,?,?,?,?,?,?,?)";
+        String SQL = "INSERT INTO patente (titulo, ano, id_genero, id_localizacao,classificacao, "
+                + "inventor, ano, pais, numero)  VALUES (?,?,?,?,?,?,?,?,?)";
     PreparedStatement ps = connection.prepareStatement(SQL);
         ps.setString(1, obj.getTitulo());                                       //Título
         ps.setInt(2, obj.getAno());                                             //Ano
@@ -35,8 +35,7 @@ public class PatenteDAO implements InterfaceDAO<Patente> {
         ps.setInt(7, obj.getAno()); 
         ps.setString(8, obj.getPais());
         ps.setInt(9, obj.getNumero());
-        ps.setInt(10, obj.getId_pat());
-        
+               
         ps.executeUpdate(); 
     
     

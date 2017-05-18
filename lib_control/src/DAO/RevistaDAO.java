@@ -24,8 +24,8 @@ public class RevistaDAO implements InterfaceDAO<Revista> {
     @Override
     public void Inserir(Revista obj) throws Exception {
         String SQL = "INSERT INTO revista (titulo, ano, id_genero, id_localizacao,classificacao,"
-                + "id_rev, autor, ano, pagina, editora, volume, edicao) "
-                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                + " autor, ano, pagina, editora, volume, edicao) "
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     PreparedStatement ps = connection.prepareStatement(SQL);
         ps.setString(1, obj.getTitulo());                                       //Título
         ps.setInt(2, obj.getAno());                                             //Ano
@@ -38,7 +38,7 @@ public class RevistaDAO implements InterfaceDAO<Revista> {
         ps.setString(9, obj.getEditora());
         ps.setInt(10, obj.getVolume()); 
         ps.setInt(11, obj.getEdicao());
-        ps.setInt(12, obj.getId_rev());
+        
         ps.executeUpdate(); 
     
     }
@@ -47,7 +47,7 @@ public class RevistaDAO implements InterfaceDAO<Revista> {
     public void Deletar(Revista obj) throws Exception {
         String SQL = "DELETE FROM revista WHERE id_acervo=?";   
         PreparedStatement ps = connection.prepareStatement(SQL);
-        ps.setInt(1, obj.getId_rev());
+        ps.setInt(1, obj.getId_acervo());
         ps.executeUpdate();
     
     }

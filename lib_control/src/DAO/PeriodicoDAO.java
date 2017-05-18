@@ -24,8 +24,8 @@ public class PeriodicoDAO implements InterfaceDAO<Periodico> {
     @Override
     public void Inserir(Periodico obj) throws Exception {
         String SQL = "INSERT INTO revista (titulo, ano, id_genero, id_localizacao,classificacao,"
-                + "id_per, autor, ano, mes, dia, paginas) "
-                + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+                + " autor, ano, mes, dia, paginas) "
+                + "VALUES (?,?,?,?,?,?,?,?,?,?)";
     PreparedStatement ps = connection.prepareStatement(SQL);
         ps.setString(1, obj.getTitulo());                                       //Título
         ps.setInt(2, obj.getAno());                                             //Ano
@@ -37,7 +37,6 @@ public class PeriodicoDAO implements InterfaceDAO<Periodico> {
         ps.setInt(8, obj.getMes());
         ps.setInt(9, obj.getDia()); 
         ps.setInt(10, obj.getPaginas());
-        ps.setInt(11, obj.getId_per());
         ps.executeUpdate(); 
     
     }
