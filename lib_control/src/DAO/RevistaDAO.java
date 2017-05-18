@@ -23,23 +23,29 @@ public class RevistaDAO implements InterfaceDAO<Revista> {
 
     @Override
     public void Inserir(Revista obj) throws Exception {
-        String SQL = "INSERT INTO revista (id_rev, autor, ano, pagina, editora, volume, edicao) "
-                + "VALUES (?,?,?,?,?,?,?)";
+        String SQL = "INSERT INTO revista (titulo, ano, id_genero, id_localizacao,classificacao,"
+                + "id_rev, autor, ano, pagina, editora, volume, edicao) "
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
     PreparedStatement ps = connection.prepareStatement(SQL);
-        ps.setString(1, obj.getAutor()); 
-        ps.setInt(2, obj.getAno()); 
-        ps.setInt(3, obj.getPagina());
-        ps.setString(4, obj.getEditora());
-        ps.setInt(5, obj.getVolume()); 
-        ps.setInt(6, obj.getEdicao());
-        ps.setInt(7, obj.getId_rev());
+        ps.setString(1, obj.getTitulo());                                       //Título
+        ps.setInt(2, obj.getAno());                                             //Ano
+        ps.setInt(3, obj.getGenero().getId_gen());                              //Genero
+        ps.setInt(4, obj.getLocalizacao().getId_loc());                         //Localização
+        ps.setString(5, obj.getClassificacao().Classificacao());                //Classificação
+        ps.setString(6, obj.getAutor()); 
+        ps.setInt(7, obj.getAno()); 
+        ps.setInt(8, obj.getPagina());
+        ps.setString(9, obj.getEditora());
+        ps.setInt(10, obj.getVolume()); 
+        ps.setInt(11, obj.getEdicao());
+        ps.setInt(12, obj.getId_rev());
         ps.executeUpdate(); 
     
     }
 
     @Override
     public void Deletar(Revista obj) throws Exception {
-        String SQL = "DELETE FROM revista WHERE id_rev=?";   
+        String SQL = "DELETE FROM revista WHERE id_acervo=?";   
         PreparedStatement ps = connection.prepareStatement(SQL);
         ps.setInt(1, obj.getId_rev());
         ps.executeUpdate();
@@ -48,15 +54,22 @@ public class RevistaDAO implements InterfaceDAO<Revista> {
 
     @Override
     public void Atualizar(Revista obj) throws Exception {
-        String SQL = "UPDATE revista SET autor=?, ano=?, pagina=?, editora=?, volume=?, edicao=? "
-              + "WHERE id_rev=?";
+        String SQL = "UPDATE revista SET titulo=?, ano=?, id_genero=?, id_localizacao=?,classificacao=?,"
+                + " autor=?, ano=?, pagina=?, editora=?, volume=?, edicao=? "
+              + "WHERE id_acervo=?";
     PreparedStatement ps = connection.prepareStatement(SQL);
-    ps.setString(1, obj.getAutor()); 
-        ps.setInt(2, obj.getAno()); 
-        ps.setInt(3, obj.getPagina());
-        ps.setString(4, obj.getEditora());
-        ps.setInt(5, obj.getVolume()); 
-        ps.setInt(6, obj.getEdicao());
+        ps.setString(1, obj.getTitulo());                                       //Título
+        ps.setInt(2, obj.getAno());                                             //Ano
+        ps.setInt(3, obj.getGenero().getId_gen());                              //Genero
+        ps.setInt(4, obj.getLocalizacao().getId_loc());                         //Localização
+        ps.setString(5, obj.getClassificacao().Classificacao());
+        ps.setString(6, obj.getAutor()); 
+        ps.setInt(7, obj.getAno()); 
+        ps.setInt(8, obj.getPagina());
+        ps.setString(9, obj.getEditora());
+        ps.setInt(10, obj.getVolume()); 
+        ps.setInt(11, obj.getEdicao());
+        ps.setInt(11, obj.getId_acervo());
         
         ps.executeUpdate(); 
     }

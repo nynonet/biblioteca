@@ -23,38 +23,50 @@ public class PeriodicoDAO implements InterfaceDAO<Periodico> {
 
     @Override
     public void Inserir(Periodico obj) throws Exception {
-        String SQL = "INSERT INTO revista (id_per, autor, ano, mes, dia, paginas) "
-                + "VALUES (?,?,?,?,?,?)";
+        String SQL = "INSERT INTO revista (titulo, ano, id_genero, id_localizacao,classificacao,"
+                + "id_per, autor, ano, mes, dia, paginas) "
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     PreparedStatement ps = connection.prepareStatement(SQL);
-        ps.setString(1, obj.getAutor()); 
-        ps.setInt(2, obj.getAno()); 
-        ps.setInt(3, obj.getMes());
-        ps.setInt(4, obj.getDia()); 
-        ps.setInt(5, obj.getPaginas());
-        
+        ps.setString(1, obj.getTitulo());                                       //Título
+        ps.setInt(2, obj.getAno());                                             //Ano
+        ps.setInt(3, obj.getGenero().getId_gen());                              //Genero
+        ps.setInt(4, obj.getLocalizacao().getId_loc());                         //Localização
+        ps.setString(5, obj.getClassificacao().Classificacao());                //Classificação
+        ps.setString(6, obj.getAutor()); 
+        ps.setInt(7, obj.getAno()); 
+        ps.setInt(8, obj.getMes());
+        ps.setInt(9, obj.getDia()); 
+        ps.setInt(10, obj.getPaginas());
+        ps.setInt(11, obj.getId_per());
         ps.executeUpdate(); 
     
     }
 
     @Override
     public void Deletar(Periodico obj) throws Exception {
-        String SQL = "DELETE FROM periodico WHERE id_per=?";   
+        String SQL = "DELETE FROM periodico WHERE id_acervo=?";   
         PreparedStatement ps = connection.prepareStatement(SQL);
-        ps.setInt(1, obj.getId_per());
+        ps.setInt(1, obj.getId_acervo());
         ps.executeUpdate();
     }
 
     @Override
     public void Atualizar(Periodico obj) throws Exception {
-        String SQL = "UPDATE periodico SET autor=?, ano=?, mes=?, dia=?, paginas=? "
-              + "WHERE id_rev=?";
+        String SQL = "UPDATE periodico SET  titulo=?, ano=?, id_genero=?, id_localizacao=?,classificacao=?,"
+                + "autor=?, ano=?, mes=?, dia=?, paginas=? "
+              + "WHERE id_acervo=?";
     PreparedStatement ps = connection.prepareStatement(SQL);
-     ps.setString(1, obj.getAutor()); 
-        ps.setInt(2, obj.getAno()); 
-        ps.setInt(3, obj.getMes());
-        ps.setInt(4, obj.getDia()); 
-        ps.setInt(5, obj.getPaginas());
-        ps.setInt(6, obj.getId_per());
+        ps.setString(1, obj.getTitulo());                                       //Título
+        ps.setInt(2, obj.getAno());                                             //Ano
+        ps.setInt(3, obj.getGenero().getId_gen());                              //Genero
+        ps.setInt(4, obj.getLocalizacao().getId_loc());                         //Localização
+        ps.setString(5, obj.getClassificacao().Classificacao());
+        ps.setString(6, obj.getAutor()); 
+        ps.setInt(7, obj.getAno()); 
+        ps.setInt(8, obj.getMes());
+        ps.setInt(9, obj.getDia()); 
+        ps.setInt(10, obj.getPaginas());
+        ps.setInt(11, obj.getId_acervo());
         
         ps.executeUpdate();
 
