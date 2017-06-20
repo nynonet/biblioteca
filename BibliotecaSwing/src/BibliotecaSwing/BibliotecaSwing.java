@@ -6,6 +6,7 @@
 package BibliotecaSwing;
 
 import Cadastro.Autores;
+import Cadastro.Classificacao;
 import Cadastro.Editora;
 import Cadastro.Genero;
 import Cadastro.Localizacao;
@@ -29,10 +30,10 @@ public class BibliotecaSwing {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
- 
+ /*
         Conexao cnx = new Conexao();
         
-      //Livro       liv = new Livro();
+        Livro       liv = new Livro();
         Autores     aut = new Autores();
         Editora     edt = new Editora();
         Genero      gnr = new Genero();
@@ -58,23 +59,28 @@ public class BibliotecaSwing {
         aut.setEmail("autor02@email.com");
         aut.setNacionalidade("Brasileira");
         
-        /**
+        
         //INSERIR LIVRO
         liv.setTitulo("Teste livro 01");
         liv.setAno(2016);
         liv.setExemplar(5);
         liv.setIsbn(826377894);
         liv.setNpaginas(300);
-        **/
+        liv.setEdicao(10);
+        liv.setGenero(gnr);
+        liv.setLocalizacao(loc);
+        liv.setAutor(aut);
+        liv.setEditora(edt);
+        liv.setClassificacao(Classificacao.LIVRO);
         
-      //LivroDAO        LivDAO = new LivroDAO(cnx.getConexao());       
+        LivroDAO        LivDAO = new LivroDAO(cnx.getConexao());       
         AutoresDAO      autDAO = new AutoresDAO(cnx.getConexao());
         EditoraDAO      edtDAO = new EditoraDAO(cnx.getConexao());
         GeneroDAO       gnrDAO = new GeneroDAO(cnx.getConexao());
         LocalizacaoDAO  locDAO = new LocalizacaoDAO(cnx.getConexao());
         
         try {
-          //LivDAO.Inserir(liv);
+            LivDAO.Inserir(liv);
             autDAO.Inserir(aut);    //Insere Autores
             edtDAO.Inserir(edt);    //Insere Editores
             gnrDAO.Inserir(gnr);    //Insere Genero
@@ -84,7 +90,7 @@ public class BibliotecaSwing {
             System.out.println("Não inserido!" + "\nErro: " + ex.getMessage());
         }
         
-        
+        */
     }
     
 }
