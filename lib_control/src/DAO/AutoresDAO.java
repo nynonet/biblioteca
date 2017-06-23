@@ -6,7 +6,6 @@
 package DAO;
 
 import Cadastro.Autores;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 /**
@@ -15,17 +14,17 @@ import java.sql.PreparedStatement;
  */
 public class AutoresDAO implements InterfaceDAO<Autores>{
     
-    Connection connection;
+    Conexao conexao;
 
-    public AutoresDAO(Connection connection) {
-        this.connection = connection;
+    public AutoresDAO(Conexao conexao) {
+        this.conexao = conexao;
     }
     
     @Override                                                                   //INSERIR
     public void Inserir(Autores obj) throws Exception {
         String SQL = "INSERT INTO autores(nome, email, nacionalidade) VALUES(?, ?, ?);";
         
-        PreparedStatement ps = this.connection.prepareStatement(SQL);
+        PreparedStatement ps = this.conexao.getConexao().prepareStatement(SQL);
         
         ps.setString(1, obj.getNome());                                         //Nome do Autor
         ps.setString(2, obj.getEmail());                                        //Email
@@ -39,7 +38,7 @@ public class AutoresDAO implements InterfaceDAO<Autores>{
     public void Deletar(Autores obj) throws Exception {
         String SQL = "DELETE FROM autores WHERE id_autor=?";
         
-        PreparedStatement ps = this.connection.prepareStatement(SQL);
+        PreparedStatement ps = this.conexao.getConexao().prepareStatement(SQL);
         
         ps.setInt(1, obj.getId_autor());
         
@@ -50,7 +49,7 @@ public class AutoresDAO implements InterfaceDAO<Autores>{
     public void Atualizar(Autores obj) throws Exception {
         String SQL = "UPDATE autores SET nome=?, email=?, nacionalidade=? WHERE id_autor=?";
         
-        PreparedStatement ps = this.connection.prepareStatement(SQL);
+        PreparedStatement ps = this.conexao.getConexao().prepareStatement(SQL);
         
         ps.setString(1, obj.getNome());                                         //Nome do Autor
         ps.setString(2, obj.getEmail());                                        //Email

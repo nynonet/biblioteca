@@ -10,7 +10,7 @@ package BibliotecaSwing;
  * @author James
  */
 public class BibliotecaPrincipal extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form BibliotecaPrincipal
      */
@@ -30,10 +30,13 @@ public class BibliotecaPrincipal extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema de Controle Biblioteca");
+        setExtendedState(6);
+        setFocusCycleRoot(false);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -48,13 +51,13 @@ public class BibliotecaPrincipal extends javax.swing.JFrame {
 
         jMenu1.setText("Cadastro");
 
-        jMenu3.setText("Autor");
-        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem1.setText("Autores");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu3ActionPerformed(evt);
+                jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenu3);
+        jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
 
@@ -74,14 +77,15 @@ public class BibliotecaPrincipal extends javax.swing.JFrame {
             .addComponent(jDesktopPane1)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(416, 339));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         CadastroAutor frmAut = new CadastroAutor();
         frmAut.setVisible(true);
         jDesktopPane1.add(frmAut);
-    }//GEN-LAST:event_jMenu3ActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,7 +126,7 @@ public class BibliotecaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

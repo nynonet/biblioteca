@@ -6,7 +6,7 @@
 package BibliotecaSwing;
 
 import CadCtrl.CtrlAutores;
-import java.sql.Connection;
+import DAO.Conexao;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,8 +17,8 @@ public class CadastroAutor extends javax.swing.JInternalFrame {
 
     private boolean emEdicao = false;
     private boolean Salvar = true;
-    private final CtrlAutores ctrlAutores = null;
-    private Connection conexao;
+    private CtrlAutores ctrlAutores;
+    private Conexao conexao;
     
     /**
      * Creates new form CadastroAutor
@@ -27,6 +27,8 @@ public class CadastroAutor extends javax.swing.JInternalFrame {
         initComponents();
         btnGravar.setVisible(false);
         btnCancelar.setVisible(false);
+        conexao = new Conexao();
+        ctrlAutores = new CtrlAutores(conexao);
     }
     
     public void ControleBotoes(){
@@ -89,6 +91,10 @@ public class CadastroAutor extends javax.swing.JInternalFrame {
         lblNacio = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Cadastro de Autores");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -219,22 +225,22 @@ public class CadastroAutor extends javax.swing.JInternalFrame {
         lblId.setText("Código");
         jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
-        edtId.setText("jTextField1");
-        jPanel1.add(edtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        edtId.setEnabled(false);
+        jPanel1.add(edtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 60, -1));
 
-        edtAutor.setText("jTextField1");
+        edtAutor.setEnabled(false);
         jPanel1.add(edtAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 520, -1));
 
         lblAutor.setText("Autor");
         jPanel1.add(lblAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
 
-        edtEmail.setText("jTextField1");
+        edtEmail.setEnabled(false);
         jPanel1.add(edtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 280, -1));
 
         lblEmail.setText("E-Mail");
         jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
-        edtNacio.setText("jTextField1");
+        edtNacio.setEnabled(false);
         jPanel1.add(edtNacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 300, -1));
 
         lblNacio.setText("Nacionalidade");
@@ -288,9 +294,11 @@ public class CadastroAutor extends javax.swing.JInternalFrame {
         ControleBotoes();
         if (Salvar) {
             System.out.println("Inserindo registro... e chamando novo");
-            String J = ctrlAutores.Novo(edtAutor.getText(),
+            String J = ctrlAutores.Novo(
+                edtAutor.getText(),
                 edtEmail.getText(),
-                edtNacio.getText());
+                edtNacio.getText()
+            );
 
             if(!"ok".equals(J)){
                 JOptionPane.showMessageDialog(rootPane, J);

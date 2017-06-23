@@ -5,7 +5,9 @@
  */
 package CadCtrl;
 
-import java.sql.Connection;
+import Cadastro.Autores;
+import DAO.AutoresDAO;
+import DAO.Conexao;
 
 /**
  *
@@ -13,15 +15,34 @@ import java.sql.Connection;
  */
 public class CtrlAutores {
     
-    private Connection conexao;
-
-    public CtrlAutores(Connection conexao) {
-        this.conexao = conexao;
+    AutoresDAO autDAO;
+    
+    public CtrlAutores(Conexao conexao) {
+        autDAO = new AutoresDAO(conexao);
     }
     
     public String Novo(String Autor, String Email, String Nacionalidade){
         
-        return null;
+        String msg = "OK";
+        
+        if(Autor.isEmpty()){
+            msg = "Nome do Autor é obrigatório!";
+            return msg;
+        }
+        
+        Autores A = new Autores();
+        
+        A.setNome(Autor);
+        A.setEmail(Email);
+        A.setNacionalidade(Nacionalidade);
+        
+        try {
+            autDAO.Inserir(A);
+        } catch (Exception ex) {
+            msg = ex.getMessage();
+        }
+        
+        return msg;
     }
     
 }
